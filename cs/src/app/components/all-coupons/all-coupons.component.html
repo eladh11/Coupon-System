@@ -1,0 +1,31 @@
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile *ngFor="let coupon of coups">
+    <div class="main">
+      <h1>Details:</h1>
+      <span>Category: {{ coupon.category }}</span>
+      <br />
+      <span>Title: {{ coupon.title }}</span>
+      <br />
+      <span>Description: {{ coupon.description }}</span>
+      <br />
+      <span>Start Date: {{ coupon.startDate | date: "dd/MM/yyyy" }}</span>
+      <br />
+      <span>End Date: {{ coupon.endDate | date: "dd/MM/yyyy" }}</span>
+      <br />
+      <span>Left in Stock: {{ coupon.amount }}</span>
+      <br />
+      <span>Price: {{ coupon.price }}</span>
+      <br />
+      <button
+        *ngIf="type === 'customer'"
+        (click)="purchaseCoupon(customerID, coupon)"
+      >
+        Buy Me!
+      </button>
+    </div>
+
+    <div class="img">
+      <img src="../../../assets/images/{{ coupon.id }}.jpg" />
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

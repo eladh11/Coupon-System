@@ -1,0 +1,79 @@
+<div>
+  <h2>Add Customer:</h2>
+
+  <form #FormInfo="ngForm">
+    <input
+      #FirstName="ngModel"
+      required
+      pattern="^[A-Z].*$"
+      type="text"
+      placeholder="First Name:"
+      [(ngModel)]="customer.first"
+      name="first"
+    />
+    <span *ngIf="FirstName.errors?.required && FirstName.touched"
+      >Missing Name...</span
+    >
+    <span *ngIf="FirstName.errors?.pattern && FirstName.touched"
+      >Name Must start with capital letter...</span
+    >
+    <br /><br />
+
+    <input
+      #LastName="ngModel"
+      required
+      pattern="^[A-Z].*$"
+      type="text"
+      placeholder="Last Name:"
+      [(ngModel)]="customer.last"
+      name="last"
+    />
+    <span *ngIf="LastName.errors?.required && LastName.touched"
+      >Missing Name...</span
+    >
+    <span *ngIf="LastName.errors?.pattern && LastName.touched"
+      >Name Must start with capital letter...</span
+    >
+    <br /><br />
+
+    <input
+      #Email="ngModel"
+      required
+      type="email"
+      placeholder="Email..."
+      [(ngModel)]="customer.email"
+      name="email"
+    />
+    <span *ngIf="Email.invalid && Email.touched">Missing Email...</span>
+
+    <br /><br />
+
+    <input
+      #Password="ngModel"
+      required
+      pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+      type="password"
+      placeholder="Password..."
+      [(ngModel)]="customer.password"
+      name="password"
+    />
+    <span *ngIf="Password.errors?.required && Password.touched"
+      >Missing Password...</span
+    >
+    <span *ngIf="Password.errors?.pattern && Password.touched"
+      >Minimum eight characters, at least one letter and one number</span
+    >
+    <br /><br />
+
+    <button
+      name="send"
+      [disabled]="!FormInfo.form.valid"
+      (click)="addCustomer()"
+    >
+      Create Account
+    </button>
+    <button name="send" [routerLink]="['/signup-company']">
+      Create Account as Company
+    </button>
+  </form>
+</div>

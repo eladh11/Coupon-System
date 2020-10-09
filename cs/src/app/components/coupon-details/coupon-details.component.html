@@ -1,0 +1,20 @@
+<div>
+  <h3>Category: {{ coupon.category }}</h3>
+  <h3>Title: {{ coupon.title }}</h3>
+  <h3>Description: {{ coupon.description }}</h3>
+  <h3>Start Date: {{ coupon.startDate | date: "dd/MM/yyyy" }}</h3>
+  <h3>End Date: {{ coupon.endDate | date: "dd/MM/yyyy" }}</h3>
+  <h3>Left in Stock: {{ coupon.amount }}</h3>
+  <h3>Price: {{ coupon.price }}</h3>
+  <h3>Img: {{ coupon.img }}</h3>
+  <h3>
+    Get Code: <button class="bbb" (click)="getCode()">Get Coupon Code</button>
+  </h3>
+  <br /><br />
+
+  <a
+    [routerLink]="['/get-all-customer-coupons']"
+    routerLinkActive="router-link-active"
+    >Back to My Coupons</a
+  >
+</div>

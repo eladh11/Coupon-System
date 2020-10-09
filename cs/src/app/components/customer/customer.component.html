@@ -1,0 +1,13 @@
+<mat-selection-list #actions [multiple]="false">
+  <mat-list-option *ngFor="let action of typesOfAction" [value]="action">
+    {{ action }}
+  </mat-list-option>
+</mat-selection-list>
+
+<app-customer-coupons
+  *ngIf="actions.selectedOptions.selected[0]?.value === 'My Coupons'"
+></app-customer-coupons>
+<br />
+<br />
+<br />
+<app-all-coupons></app-all-coupons>

@@ -1,0 +1,88 @@
+<h2>insert ID:</h2>
+<div>
+  <input
+    type="number"
+    min="0"
+    max="{{ customers.length + 1 }}"
+    placeholder="ID:"
+    [(ngModel)]="customerID"
+  />
+</div>
+<div>
+  <button name="send" [routerLink]="['/add-customer']">
+    Add Customer <mat-icon>add</mat-icon>
+  </button>
+  <table>
+    <tr>
+      <th>ID:</th>
+      <th>First Name:</th>
+      <th>Last Name:</th>
+      <th>Email:</th>
+      <th>Password:</th>
+      <th>Edit</th>
+    </tr>
+    <tr *ngFor="let customer of customers">
+      <td *ngIf="customerID == customer.id">{{ customer.id }}</td>
+      <td *ngIf="customer.id === editRowID">
+        <input type="text" [(ngModel)]="customer.first" />
+      </td>
+      <td
+        *ngIf="customer.id !== editRowID && customerID == customer.id"
+        (click)="Edit(customer.id)"
+      >
+        {{ customer.first }}
+      </td>
+
+      <td *ngIf="customer.id === editRowID">
+        <input type="text" [(ngModel)]="customer.last" />
+      </td>
+      <td
+        *ngIf="customer.id !== editRowID && customerID == customer.id"
+        (click)="Edit(customer.id)"
+      >
+        {{ customer.last }}
+      </td>
+
+      <td *ngIf="customer.id === editRowID">
+        <input type="email" [(ngModel)]="customer.email" />
+      </td>
+      <td
+        *ngIf="customer.id !== editRowID && customerID == customer.id"
+        (click)="Edit(customer.id)"
+      >
+        {{ customer.email }}
+      </td>
+
+      <td *ngIf="customer.id === editRowID">
+        <input type="password" [(ngModel)]="customer.password" />
+      </td>
+      <td
+        *ngIf="customer.id !== editRowID && customerID == customer.id"
+        (click)="Edit(customer.id)"
+      >
+        {{ customer.password }}
+      </td>
+      <td>
+        <button
+          *ngIf="customerID == customer.id"
+          (click)="deleteCustomer(customer.id)"
+          mat-fab
+          color="warn"
+          aria-label="Example icon button with a delete icon"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+
+        <button
+          *ngIf="customerID == customer.id"
+          (click)="updateCustomer(customer)"
+          mat-fab
+          color="primary"
+          aria-label="Example icon button with a edit icon"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

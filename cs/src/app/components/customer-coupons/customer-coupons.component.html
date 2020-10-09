@@ -1,0 +1,48 @@
+<div>
+  <h1>My Coupons:</h1>
+  <table>
+    <tr>
+      <th>Category:</th>
+      <th>Title:</th>
+      <th>Description:</th>
+      <th>Start Date:</th>
+      <th>End Date:</th>
+      <th>Left in Stock:</th>
+      <th>Price:</th>
+      <th>Img:</th>
+      <th>Get Code:</th>
+    </tr>
+
+    <tr *ngFor="let coupon of coups">
+      <td>
+        {{ coupon.category }}
+      </td>
+      <td>
+        <a routerLink="/coupon-details/{{ coupon.id }}">
+          {{ coupon.title }}
+        </a>
+      </td>
+      <td>
+        {{ coupon.description }}
+      </td>
+      <td>
+        {{ coupon.startDate | date: "dd/MM/yyyy" }}
+      </td>
+      <td>
+        {{ coupon.endDate | date: "dd/MM/yyyy" }}
+      </td>
+      <td>
+        {{ coupon.amount }}
+      </td>
+      <td>
+        {{ coupon.price }}
+      </td>
+      <td>
+        {{ coupon.img }}
+      </td>
+      <td>
+        <button class="bbb" (click)="getCode()">Get Coupon Code</button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,61 @@
+<div>
+  <h3>Add Company:</h3>
+
+  <form #FormInfo="ngForm">
+    <input
+      #Name="ngModel"
+      required
+      pattern="^[A-Z].*$"
+      type="text"
+      placeholder="Name..."
+      [(ngModel)]="company.name"
+      name="name"
+    />
+    <span *ngIf="Name.errors?.required && Name.touched">Missing Name...</span>
+    <span *ngIf="Name.errors?.pattern && Name.touched"
+      >Name Must start with capital letter...</span
+    >
+    <br /><br />
+
+    <input
+      #Email="ngModel"
+      required
+      type="email"
+      placeholder="Email..."
+      [(ngModel)]="company.email"
+      name="email"
+    />
+    <span *ngIf="Email.invalid && Email.touched">Missing Email...</span>
+
+    <br /><br />
+
+    <input
+      #Password="ngModel"
+      required
+      pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+      type="password"
+      placeholder="Password..."
+      [(ngModel)]="company.password"
+      name="password"
+    />
+
+    <span *ngIf="Password.errors?.required && Password.touched"
+      >Missing Password...</span
+    >
+    <span *ngIf="Password.errors?.pattern && Password.touched"
+      >Minimum eight characters, at least one letter and one number</span
+    >
+    <br /><br />
+
+    <button
+      name="send"
+      [disabled]="!FormInfo.form.valid"
+      (click)="addCompany()"
+    >
+      Add Company
+    </button>
+    <button name="send" [routerLink]="['/get-all-companies']">
+      Back to All Companies
+    </button>
+  </form>
+</div>

@@ -1,0 +1,24 @@
+<mat-selection-list #actions [multiple]="false">
+  <mat-list-option *ngFor="let action of typesOfAction" [value]="action">
+    {{ action }}
+  </mat-list-option>
+</mat-selection-list>
+<app-get-all-companies
+  *ngIf="actions.selectedOptions.selected[0]?.value === 'Get All Companies'"
+></app-get-all-companies>
+
+<app-get-one-company
+  *ngIf="actions.selectedOptions.selected[0]?.value === 'Get One Company'"
+></app-get-one-company>
+
+<app-get-all-customers
+  *ngIf="actions.selectedOptions.selected[0]?.value === 'Get All Customers'"
+></app-get-all-customers>
+
+<app-get-one-customer
+  *ngIf="actions.selectedOptions.selected[0]?.value === 'Get One Customer'"
+></app-get-one-customer>
+<br />
+<br />
+<br />
+<app-all-coupons></app-all-coupons>

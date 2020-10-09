@@ -1,0 +1,29 @@
+mat-grid-tile {
+  background: lightblue;
+}
+.main {
+  position: relative;
+  top: 10px;
+  right: 20%;
+}
+.main span {
+  color: darkblue;
+}
+.main button {
+  background-color: lime;
+}
+.main h1 {
+  color: black;
+  font-family: arial, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+.img img {
+  border-radius: 50%;
+  max-width: 100%;
+  height: auto;
+  width: 400px;
+  height: 250px;
+}

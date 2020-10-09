@@ -1,0 +1,60 @@
+<div>
+  <button name="send" [routerLink]="['/add-company']">
+    Add Company <mat-icon>add</mat-icon>
+  </button>
+  <table>
+    <tr>
+      <th>ID:</th>
+      <th>Name:</th>
+      <th>Email:</th>
+      <th>Password:</th>
+      <th>Edit</th>
+    </tr>
+
+    <tr *ngFor="let company of comps">
+      <td>{{ company.id }}</td>
+      <td *ngIf="company.id === editRowID">
+        <input type="text" [(ngModel)]="company.name" />
+      </td>
+      <td *ngIf="company.id !== editRowID" (click)="Edit(company.id)">
+        <a routerLink="/company-details/{{ company.id }}">
+          {{ company.name }}
+        </a>
+      </td>
+
+      <td *ngIf="company.id === editRowID">
+        <input type="email" [(ngModel)]="company.email" />
+      </td>
+      <td *ngIf="company.id !== editRowID" (click)="Edit(company.id)">
+        {{ company.email }}
+      </td>
+
+      <td *ngIf="company.id === editRowID">
+        <input type="password" [(ngModel)]="company.password" />
+      </td>
+      <td *ngIf="company.id !== editRowID" (click)="Edit(company.id)">
+        {{ company.password }}
+      </td>
+
+      <td>
+        <button
+          (click)="deleteCompany(company.id)"
+          mat-fab
+          color="warn"
+          aria-label="Example icon button with a delete icon"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+
+        <button
+          (click)="updateCompany(company)"
+          mat-fab
+          color="primary"
+          aria-label="Example icon button with a edit icon"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

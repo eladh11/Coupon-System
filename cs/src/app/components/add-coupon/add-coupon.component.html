@@ -1,0 +1,144 @@
+<div>
+  <h3>Add Coupon:</h3>
+
+  <form #FormInfo="ngForm">
+    <input
+      #CompanyID="ngModel"
+      required
+      min="0"
+      type="number"
+      placeholder="Company ID:"
+      [(ngModel)]="coupon.companyID"
+      name="companyID"
+    />
+    <span *ngIf="CompanyID.errors?.required && CompanyID.touched"
+      >Missing Company ID...</span
+    >
+
+    <br /><br />
+
+    <p>Choose Type:</p>
+    <select
+      #Category="ngModel"
+      name="category"
+      required
+      [(ngModel)]="coupon.category"
+    >
+      <option selected disabled>Choose Category:</option>
+      <option>FOOD</option>
+      <option>ELECTRICITY</option>
+      <option>RESTAURANT</option>
+      <option>VACATION</option>
+      <option>SPA</option>
+    </select>
+    <br />
+    <span *ngIf="Category.touched && Category.errors?.required">
+      Missing Category...</span
+    >
+
+    <br /><br />
+
+    <input
+      #Title="ngModel"
+      required
+      type="text"
+      placeholder="Title:"
+      [(ngModel)]="coupon.title"
+      name="title"
+    />
+    <span *ngIf="Title.invalid && Title.touched">Missing Title...</span>
+
+    <br /><br />
+
+    <input
+      #Description="ngModel"
+      required
+      type="text"
+      placeholder="Description:"
+      [(ngModel)]="coupon.description"
+      name="description"
+    />
+    <span *ngIf="Description.errors?.required && Description.touched"
+      >Missing Description...</span
+    >
+
+    <br /><br />
+
+    <input
+      #StartDate="ngModel"
+      required
+      type="datetime-local"
+      placeholder="Start Date:"
+      [(ngModel)]="coupon.startDate"
+      name="startDate"
+    />
+    <span *ngIf="StartDate.errors?.required && StartDate.touched"
+      >Missing Start Date...</span
+    >
+
+    <br /><br />
+
+    <input
+      #EndDate="ngModel"
+      required
+      type="datetime-local"
+      placeholder="End Date:"
+      [(ngModel)]="coupon.endDate"
+      name="endDate"
+    />
+    <span *ngIf="EndDate.errors?.required && EndDate.touched"
+      >Missing End Date...</span
+    >
+
+    <br /><br />
+
+    <input
+      #Amount="ngModel"
+      required
+      min="0"
+      type="number"
+      placeholder="Amount:"
+      [(ngModel)]="coupon.amount"
+      name="amount"
+    />
+    <span *ngIf="Amount.errors?.required && Amount.touched"
+      >Missing Amount...</span
+    >
+
+    <br /><br />
+
+    <input
+      #Price="ngModel"
+      required
+      min="0"
+      type="number"
+      placeholder="Price:"
+      [(ngModel)]="coupon.price"
+      name="price"
+    />
+    <span *ngIf="Price.errors?.required && Price.touched"
+      >Missing Price...</span
+    >
+
+    <br /><br />
+
+    <input
+      #Img="ngModel"
+      required
+      type="text"
+      placeholder="Img:"
+      [(ngModel)]="coupon.img"
+      name="img"
+    />
+    <span *ngIf="Img.errors?.required && Img.touched">Missing Img...</span>
+
+    <br /><br />
+
+    <button name="send" [disabled]="!FormInfo.form.valid" (click)="addCoupon()">
+      Add Coupon
+    </button>
+    <button name="send" [routerLink]="['/get-all-coupons']">
+      Back to All Coupons
+    </button>
+  </form>
+</div>

@@ -1,0 +1,61 @@
+<mat-toolbar color="primary">
+  <span class="example-spacer"></span>
+
+  <div class="header">
+    <img src="../../../assets/images/coupon-logo.jpg" alt="logo" />
+    <h1>Coupon System JB</h1>
+  </div>
+
+  <button
+    *ngIf="checkIfAdmin()"
+    mat-raised-button
+    color="primary"
+    [routerLink]="['/admin']"
+  >
+    Back to Admin Page
+  </button>
+  <button
+    *ngIf="checkIfCompany()"
+    mat-raised-button
+    color="primary"
+    [routerLink]="['/get-all-coupons']"
+  >
+    Back to Company Page
+  </button>
+  <button
+    *ngIf="checkIfCustomer()"
+    mat-raised-button
+    color="primary"
+    [routerLink]="['/get-all-customer-coupons']"
+  >
+    Back to Home Page
+  </button>
+  <button
+    *ngIf="!login()"
+    mat-raised-button
+    color="primary"
+    [routerLink]="['/all-coupons']"
+  >
+    All-Coupons
+  </button>
+  <button *ngIf="!login()" mat-raised-button color="warn" (click)="logout()">
+    Logout
+  </button>
+
+  <button
+    *ngIf="login()"
+    mat-raised-button
+    color="primary"
+    [routerLink]="['/login']"
+  >
+    Login
+  </button>
+  <button
+    *ngIf="login()"
+    mat-raised-button
+    color="basic"
+    [routerLink]="['/create-account']"
+  >
+    Create Account
+  </button>
+</mat-toolbar>

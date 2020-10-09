@@ -1,0 +1,67 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <h2 class="active">Sign In</h2>
+
+    <!-- Login Form -->
+    <form #my_form="ngForm">
+      <input
+        #email_input="ngModel"
+        type="email"
+        required
+        email
+        placeholder="email..."
+        name="email"
+        [(ngModel)]="credentials.email"
+      />
+      <br />
+      <span *ngIf="email_input.touched && email_input.errors?.required"
+        >Missing Email</span
+      >
+      <br />
+      <span *ngIf="email_input.touched && email_input.errors?.email"
+        >Invalid Email</span
+      >
+      <br /><br />
+      <input
+        #password_input="ngModel"
+        type="password"
+        pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+        required
+        placeholder="password"
+        name="password"
+        [(ngModel)]="credentials.password"
+      />
+      <br />
+      <span *ngIf="password_input.touched && password_input.errors?.required"
+        >Missing Password</span
+      >
+      <br /><br />
+      <p>Choose Type:</p>
+      <select
+        #type_input="ngModel"
+        name="type"
+        required
+        [(ngModel)]="credentials.type"
+      >
+        <option selected disabled>Choose Type</option>
+        <option>Admin</option>
+        <option>Customer</option>
+        <option>Company</option>
+      </select>
+      <br />
+      <span *ngIf="type_input.touched && type_input.errors?.required">
+        Please choose Type</span
+      >
+
+      <br /><br />
+      <button name="send" (click)="loginToServer()">Login</button>
+
+      <hr />
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+  </div>
+</div>

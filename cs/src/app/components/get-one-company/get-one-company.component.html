@@ -1,0 +1,83 @@
+<h2>insert ID:</h2>
+<div>
+  <input
+    type="number"
+    min="0"
+    max="{{ comps.length + 1 }}"
+    placeholder="ID:"
+    [(ngModel)]="companyID"
+  />
+</div>
+
+<div>
+  <button name="send" [routerLink]="['/add-company']">
+    Add Company <mat-icon>add</mat-icon>
+  </button>
+
+  <table>
+    <tr>
+      <th>ID:</th>
+      <th>Name:</th>
+      <th>Email:</th>
+      <th>Password:</th>
+      <th>Edit</th>
+    </tr>
+
+    <tr *ngFor="let company of comps">
+      <td *ngIf="companyID == company.id">{{ company.id }}</td>
+      <td *ngIf="company.id === editRowID">
+        <input type="text" [(ngModel)]="company.name" />
+      </td>
+      <td
+        *ngIf="company.id !== editRowID && companyID == company.id"
+        (click)="Edit(company.id)"
+      >
+        <a routerLink="/company-details/{{ company.id }}">
+          {{ company.name }}
+        </a>
+      </td>
+
+      <td *ngIf="company.id === editRowID">
+        <input type="email" [(ngModel)]="company.email" />
+      </td>
+      <td
+        *ngIf="company.id !== editRowID && companyID == company.id"
+        (click)="Edit(company.id)"
+      >
+        {{ company.email }}
+      </td>
+
+      <td *ngIf="company.id === editRowID">
+        <input type="password" [(ngModel)]="company.password" />
+      </td>
+      <td
+        *ngIf="company.id !== editRowID && companyID == company.id"
+        (click)="Edit(company.id)"
+      >
+        {{ company.password }}
+      </td>
+
+      <td>
+        <button
+          *ngIf="companyID == company.id"
+          (click)="deleteCompany(company.id)"
+          mat-fab
+          color="warn"
+          aria-label="Example icon button with a delete icon"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+
+        <button
+          *ngIf="companyID == company.id"
+          (click)="updateCompany(company)"
+          mat-fab
+          color="primary"
+          aria-label="Example icon button with a edit icon"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
