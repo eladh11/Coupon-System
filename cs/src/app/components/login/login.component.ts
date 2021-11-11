@@ -1,7 +1,8 @@
 import { Router } from '@angular/router';
 import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
-import { Credentials } from '../../models/Credentials';
+import { Credentials } from 'src/app/models/Credentials';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,25 +13,25 @@ export class LoginComponent implements OnInit {
 
   public constructor(
     private loginService: LoginService,
-    private router: Router
-  ) {}
+    private router: Router,
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
+
 
   public loginToServer(): void {
     this.loginService.loginRequest(this.credentials).subscribe(
       (loginResult) => {
-        alert(loginResult.token + ' ' + loginResult.type);
-        this.loginService.token = loginResult.token;
-        this.loginService.type = loginResult.type;
+        // alert(loginResult.token + ' ' + loginResult.type);
+        // this.loginService.token = loginResult.token.toString();
+        this.loginService.type = this.credentials.type.toLowerCase();
         this.loginService.isLoggedIn = true;
         this.loginService.log = false;
         this.loginService.email = this.credentials.email;
         this.router.navigateByUrl(this.loginService.type);
       },
-      (err) => {
-        alert('wrong details :(');
-      }
-    );
+      (err) => { alert(err.message); });
   }
 }

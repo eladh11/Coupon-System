@@ -1,9 +1,10 @@
-import { LoginService } from './../../services/login.service';
-import { AdminService } from 'src/app/services/admin.service';
-import { CustomerService } from './../../services/customer.service';
-import { CompanyService } from './../../services/company.service';
-import { Coupon } from './../../models/coupon';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Coupon } from 'src/app/models/coupon';
+import { AdminService } from 'src/app/services/admin.service';
+import { CompanyService } from 'src/app/services/company.service';
+import { CustomerService } from 'src/app/services/customer.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-all-coupons',
@@ -15,11 +16,12 @@ export class AllCouponsComponent implements OnInit {
   public customerID: number;
   public type: string;
   constructor(
+    private adminService: AdminService,
     private companyService: CompanyService,
     private customerService: CustomerService,
-    private adminService: AdminService,
-    private loginService: LoginService
-  ) {}
+    private loginService: LoginService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
     this.type = this.loginService.type;
@@ -46,6 +48,7 @@ export class AllCouponsComponent implements OnInit {
           alert(
             'Coupon: ' + coupon.title + ' has purchase, Enjoy your Coupon!'
           );
+          this.router.navigateByUrl('/all-coupons');
         },
         (err) => {
           alert(err.message);
@@ -53,4 +56,5 @@ export class AllCouponsComponent implements OnInit {
       );
     }
   }
+
 }

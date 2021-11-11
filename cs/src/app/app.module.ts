@@ -18,7 +18,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { GetAllCustomersComponent } from './components/get-all-customers/get-all-customers.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { AddCompanyComponent } from './components/add-company/add-company.component';
 import { GetAllCompaniesComponent } from './components/get-all-companies/get-all-companies.component';
@@ -37,6 +36,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { SignupComponent } from './components/signup/signup.component';
 import { SignupCompanyComponent } from './components/signup-company/signup-company.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { OpenPageComponent } from './components/open-page/open-page.component'
+
+
 
 @NgModule({
   declarations: [
@@ -61,6 +65,7 @@ import { FooterComponent } from './components/footer/footer.component';
     SignupComponent,
     SignupCompanyComponent,
     FooterComponent,
+    OpenPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,10 +84,10 @@ import { FooterComponent } from './components/footer/footer.component';
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
-    ReactiveFormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

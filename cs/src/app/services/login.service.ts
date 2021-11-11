@@ -9,14 +9,14 @@ import { Observable, from } from 'rxjs';
 })
 export class LoginService {
   public isLoggedIn = false;
-  public token: string;
+  // public token: string;
   public type: string;
   public log = true;
   public email: string;
   public constructor(
     private httpClient: HttpClient,
     private urlService: UrlService
-  ) {}
+  ) { }
 
   public loginRequest(credentials: Credentials): Observable<LoginResult> {
     const correctURL =

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://localhost:8081/company/';
+const baseUrl = 'http://localhost:8088/company/';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,7 @@ export class CompanyService {
   }
   public updateCoupon(coupon: Coupon): Observable<any> {
     return this.httpClient.put<any>(
-      'http://localhost:8081/company/update-coupon/',
+      'http://localhost:8088/company/update-coupon/',
       coupon
     );
   }

@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins");
+ @import url("https://fonts.googleapis.com/css?family=Poppins"); */
 
-/* BASIC */
+/* BASIC */ 
 
 html {
   background-color: #56baed;
@@ -355,6 +355,25 @@ input[type="password"]:placeholder {
   box-sizing: border-box;
 }
 
-span {
+.warning {
   color: red;
 }
+.check {
+  color: blue;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+ 

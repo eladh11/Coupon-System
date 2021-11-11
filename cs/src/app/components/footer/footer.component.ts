@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ElementRef } from '@angular/core';
+import {
+  ViewportScroller
+} from '@angular/common';
+
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
-  constructor() { }
+  pageYoffset = 0;
+  @HostListener('window:scroll', ['$event']) onScroll(event) {
+    this.pageYoffset = window.pageYOffset;
+  }
+  constructor(private scroll: ViewportScroller) { }
 
   ngOnInit(): void {
+  }
+
+
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
   }
 
 }

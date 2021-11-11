@@ -1,3 +1,3 @@
 export class LoginResult {
-  public constructor(public token?: string, public type?: string) {}
+  public constructor(public type?: string) { }
 }

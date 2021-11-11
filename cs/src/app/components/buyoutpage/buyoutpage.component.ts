@@ -1,0 +1,102 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Coupon } from 'src/app/models/coupon';
+import { AdminService } from 'src/app/services/admin.service';
+import { CompanyService } from 'src/app/services/company.service';
+import { CustomerService } from 'src/app/services/customer.service';
+import { LoginService } from 'src/app/services/login.service';
+import { ActivatedRoute } from '@angular/router';
+
+
+
+@Component({
+    selector: 'app-buyoutpage',
+    templateUrl: './buyoutpage.component.html',
+    styleUrls: ['./buyoutpage.component.css']
+})
+export class BuyoutpageComponent implements OnInit {
+
+
+    constructor(
+        private companyService: CompanyService,
+        private customerService: CustomerService,
+        private adminService: AdminService,
+        private loginService: LoginService,
+        private param: ActivatedRoute,
+        private router: Router,
+
+    ) { }
+
+    public c: Coupon;
+    public coups: Coupon[];
+    public customerID: number;
+    public type: string;
+    public getMenuId: any
+    ngOnInit(): void {
+        this.getMenuId = this.param.snapshot.paramMap.get('id');
+
+
+        this.type = this.loginService.type;
+        this.companyService.getAllCoupons().subscribe(
+            (data) => {
+                this.coups = data;
+            },
+            (err) => {
+                alert(err.message);
+            }
+        );
+
+
+        this.adminService.getOneCustomerByEmail(this.loginService.email).subscribe(
+            (c) => {
+                this.customerID = c.id;
+            },
+            (err) => alert(err.message)
+        );
+    }
+    purchaseCoupon(customerID: number, coupon: Coupon): void {
+        if (confirm('Confirm buying: ' + coupon.title + ' Proceed?')) {
+            this.customerService.purchaseCoupon(customerID, coupon).subscribe(
+                (data) => {
+                    alert(
+                        'Coupon: ' + coupon.title + ' has purchase, Enjoy your Coupon!'
+                    );
+                    this.router.navigateByUrl('/all-coupons');
+                },
+                (err) => {
+                    alert(err.message);
+                }
+            );
+        }
+    }
+}
+
+
+
+    // this.getMenuId = this.param.snapshot.paramMap.get('id');
+    // console.log(this.getMenuId, 'getmenu');
+    // if (this.getMenuId) {
+    //   this.menuData = this.service.getAllCoupons().subscribe(
+    //     (data) => {
+    //       // data.filter((val) => {
+    //       //   return val.id == this.getMenuId;
+
+    //       // });
+    //       data[this.getMenuId - 1].id == this.getMenuId;
+    //     },
+    //     (err) => {
+    //       alert(err.message);
+    //     }
+    //   );
+
+
+
+      // this.coups = this.service.getAllCoupons().subscribe(
+      //   (data) => {
+      //     this.coups = data;
+      //   });
+      // (err) => {
+      //   alert(err.message);
+      // }
+
+

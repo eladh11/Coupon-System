@@ -16,6 +16,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
+import { OpenPageComponent } from './components/open-page/open-page.component'
+import { BuyoutpageComponent } from './components/buyoutpage/buyoutpage.component'
 
 const routes: Routes = [
   { path: 'admin', component: AdminComponent },
@@ -34,12 +36,14 @@ const routes: Routes = [
   { path: 'all-coupons', component: AllCouponsComponent },
   { path: 'create-account', component: SignupComponent },
   { path: 'signup-company', component: SignupCompanyComponent },
-  { path: '', component: LoginComponent, pathMatch: 'full' },
-  { path: '**', component: LoginComponent, pathMatch: 'full' },
+  { path: 'home', component: OpenPageComponent },
+  { path: 'menu/:id', component: BuyoutpageComponent },
+  { path: '', component: OpenPageComponent, pathMatch: 'full' },
+  { path: '**', component: OpenPageComponent, pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

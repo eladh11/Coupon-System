@@ -4,20 +4,20 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Company } from 'src/app/models/company';
 
-const baseUrl = 'http://localhost:8081/admin/';
+const baseUrl = 'http://localhost:8088/admin/';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AdminService {
-  public constructor(private httpClient: HttpClient) {}
+  public constructor(private httpClient: HttpClient) { }
 
   public addCompany(company: Company): Observable<any> {
     return this.httpClient.post<any>(baseUrl + 'add-company', company);
   }
   public updateCompany(company: Company): Observable<any> {
     return this.httpClient.put<any>(
-      'http://localhost:8081/admin/update-company/',
+      'http://localhost:8088/admin/update-company/',
       company
     );
   }
@@ -30,17 +30,17 @@ export class AdminService {
   }
   public getOneCompany(companyID: number): Observable<Company> {
     return this.httpClient.get<Company>(
-      'http://localhost:8081/admin/get-one-company/' + companyID
+      'http://localhost:8088/admin/get-one-company/' + companyID
     );
   }
   public getOneCompanyByEmail(email: string): Observable<Company> {
     return this.httpClient.get<Company>(
-      'http://localhost:8081/admin/get-one-company-email/' + email
+      'http://localhost:8088/admin/get-one-company-email/' + email
     );
   }
   public getOneCustomerByEmail(email: string): Observable<Customer> {
     return this.httpClient.get<Customer>(
-      'http://localhost:8081/admin/get-one-customer-email/' + email
+      'http://localhost:8088/admin/get-one-customer-email/' + email
     );
   }
 
@@ -49,7 +49,7 @@ export class AdminService {
   }
   public updateCustomer(customer: Customer): Observable<any> {
     return this.httpClient.put<any>(
-      'http://localhost:8081/admin/update-customer/',
+      'http://localhost:8088/admin/update-customer/',
       customer
     );
   }
@@ -65,7 +65,7 @@ export class AdminService {
 
   public getOneCustomer(customerID: number): Observable<Customer> {
     return this.httpClient.get<Customer>(
-      'http://localhost:8081/admin/get-one-customer/' + customerID
+      'http://localhost:8088/admin/get-one-customer/' + customerID
     );
   }
 }

@@ -18,18 +18,20 @@
 
     <tr *ngFor="let coupon of coups">
       <td *ngIf="coupon.id === editRowID">
-        <input type="number" [(ngModel)]="coupon.companyID" />
+        <!-- <input type="number" [(ngModel)]="coupon.companyID" /> -->
+        {{ coupon.companyID }}
       </td>
 
       <td
         *ngIf="coupon.id !== editRowID && coupon.companyID === id"
-        (click)="Edit(coupon.id)"
       >
         {{ coupon.companyID }}
       </td>
 
       <td *ngIf="coupon.id === editRowID">
-        <input type="text" [(ngModel)]="coupon.category" />
+        <input type="text" [(ngModel)]="coupon.category"
+        />
+        
       </td>
       <td
         *ngIf="coupon.id !== editRowID && coupon.companyID === id"
@@ -37,7 +39,7 @@
       >
         {{ coupon.category }}
       </td>
-
+      
       <td *ngIf="coupon.id === editRowID">
         <input type="text" [(ngModel)]="coupon.title" />
       </td>

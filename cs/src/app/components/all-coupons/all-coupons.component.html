@@ -1,6 +1,9 @@
-<mat-grid-list cols="1" rowHeight="5:1">
+ <mat-grid-list cols="3" rowHeight="1:1">
   <mat-grid-tile *ngFor="let coupon of coups">
-    <div class="main">
+    <div class="main" >
+      <div class="img">
+        <img src="../../../assets/images/{{ coupon.id }}.jpg" />
+      </div>
       <h1>Details:</h1>
       <span>Category: {{ coupon.category }}</span>
       <br />
@@ -17,15 +20,38 @@
       <span>Price: {{ coupon.price }}</span>
       <br />
       <button
-        *ngIf="type === 'customer'"
-        (click)="purchaseCoupon(customerID, coupon)"
-      >
-        Buy Me!
+      *ngIf="type === 'customer'"
+      (click)="purchaseCoupon(customerID, coupon)"
+             >
+        Buy Me!&nbsp;<i class="bi bi-bag"></i>
       </button>
+     
     </div>
 
-    <div class="img">
-      <img src="../../../assets/images/{{ coupon.id }}.jpg" />
-    </div>
+   
   </mat-grid-tile>
 </mat-grid-list>
+
+
+
+<!-- 
+<div class="container mt-5 mb-5">
+
+  <div class="row">
+
+      <div class="col-lg-4" *ngFor="let coupon of coups">
+
+          <div class="foodbox mt-3 mb-3">
+              <img src="../../../assets/images/{{ coupon.id }}.jpg">
+              <h1>{{coupon.title}}</h1>
+              <p>{{coupon.description}}</p>
+              <p>{{coupon.price | currency:'INR'}}</p>
+              <br/>
+              <a class="buybtn" [routerLink]="['/menu',fd.id]">Buy Now &nbsp;<i class="bi bi-bag"></i></a>
+          </div>
+
+      </div>
+
+  </div>
+
+</div> -->

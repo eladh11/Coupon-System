@@ -14,7 +14,7 @@ export class CustomerCouponsComponent implements OnInit {
   public constructor(
     private adminService: AdminService,
     private loginService: LoginService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.adminService.getOneCustomerByEmail(this.loginService.email).subscribe(
       (c) => {

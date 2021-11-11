@@ -1,6 +1,35 @@
-<footer class="page-footer font-small blue">
+<!-- <footer class="page-footer font-small blue">
   <div class="footer-copyright text-center py-3">
     © 2020 Coupon-System:
     <a routerLink="/login"> Coupon-System-JB.com</a>
   </div>
 </footer>
+ -->
+
+
+
+<div class="container-fluid footer mt-5">
+  <div class="row">
+      <!-- name  -->
+      <div class="col-lg-6 mt-3 mb-3">
+          <h1>© 2020 JB-CS</h1>
+          <p>John Bryce Coupon System</p>
+      </div>
+      <!-- nav  -->
+      <div class="col-lg-4 mt-3 mb-3">
+          <a [routerLink]="['/login']">Login</a>
+          <a [routerLink]="['/create-account']">Create Account</a>
+          <a [routerLink]="['/home']" (click)="scrollToTop()" >Back To Home</a>
+      </div>
+      <!-- socialmedia -->
+      <div class="col-lg-2 mt-3 mb-3">
+          <a href="https://www.facebook.com/profile.php?id=100000974902659" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.linkedin.com/in/elad-hakmon-1717001a0/" target="_blank"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.instagram.com/elad_hakmon11" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="#" target="_blank"><i class="bi bi-youtube"></i></a>
+      </div>
+  </div>
+</div>
+<div (click)="scrollToTop()" class="scroll-to-top" *ngIf="pageYoffset > 0" >
+  Back to Top 
+</div>

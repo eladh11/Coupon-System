@@ -1,8 +1,6 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <h2 class="active">Sign In</h2>
-
-    <!-- Login Form -->
     <form #my_form="ngForm">
       <input
         #email_input="ngModel"
@@ -14,13 +12,14 @@
         [(ngModel)]="credentials.email"
       />
       <br />
-      <span *ngIf="email_input.touched && email_input.errors?.required"
+      <span class="warning" *ngIf="email_input.touched && email_input.errors?.required"
         >Missing Email</span
       >
       <br />
-      <span *ngIf="email_input.touched && email_input.errors?.email"
+      <span class="warning" *ngIf="email_input.touched && email_input.errors?.email"
         >Invalid Email</span
       >
+      <span class="check">{{credentials.email}}</span>
       <br /><br />
       <input
         #password_input="ngModel"
@@ -32,9 +31,10 @@
         [(ngModel)]="credentials.password"
       />
       <br />
-      <span *ngIf="password_input.touched && password_input.errors?.required"
+      <span class="warning" *ngIf="password_input.touched && password_input.errors?.required"
         >Missing Password</span
       >
+      <span class="check">{{credentials.password}}</span>
       <br /><br />
       <p>Choose Type:</p>
       <select
@@ -48,18 +48,19 @@
         <option>Customer</option>
         <option>Company</option>
       </select>
+      <span class="check">{{credentials.type}}</span>
+
       <br />
-      <span *ngIf="type_input.touched && type_input.errors?.required">
+      <span class="warning" *ngIf="type_input.touched && type_input.errors?.required">
         Please choose Type</span
       >
-
+      
       <br /><br />
       <button name="send" (click)="loginToServer()">Login</button>
 
       <hr />
     </form>
-
-    <!-- Remind Passowrd -->
+     <!-- Remind Passowrd  -->
     <div id="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
     </div>
