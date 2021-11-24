@@ -1,27 +1,48 @@
 <!-- <div class="container mt-5 mb-5">
-
-    <div class="row">
- 
-
-        <div class="col-lg-6 col-12" *ngFor="let c of coups">
-            <h1>Enter Your Details</h1>
-            <form>
-
-                <input type="text" class="form-control" placeholder="Enter Your Full Name" />
-                <input type="text" class="form-control" placeholder="Enter Your Mobile" />
-                <textarea class="form-control" placeholder="Enter Your Address"></textarea>
-                <button
-                    class="btn btn-md btn-dark mt-3"
-                    (click)="purchaseCoupon(c,customerID)"      >
-                    Place Order&nbsp;<i class="bi bi-bag"></i>
-                 </button>
-
-            </form>
-
-
-        </div> 
-
-
+  <div class="row">
+    <div class="col-lg-6 col-12" *ngFor="let c of coups">
+      <h1>Enter Your Details</h1>
+      <form>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Your Full Name"
+        />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Your Mobile"
+        />
+        <textarea
+          class="form-control"
+          placeholder="Enter Your Address"
+        ></textarea>
+        <button
+          class="btn btn-md btn-dark mt-3"
+          (click)="purchaseCoupon(c, customerID)"
+        >
+          Place Order&nbsp;<i class="bi bi-bag"></i>
+        </button>
+      </form>
     </div>
-
+  </div>
 </div> -->
+<div>
+  <h3>Category: {{ coupon.category }}</h3>
+  <h3>Title: {{ coupon.title }}</h3>
+  <h3>Description: {{ coupon.description }}</h3>
+  <h3>Left in Stock: {{ coupon.amount }}</h3>
+  <h3>Price: {{ coupon.price }}</h3>
+  <img src="../../../assets/images/{{ coupon.id }}.jpg" />
+
+  <br /><br />
+  <button
+    mat-button
+    style="background-color: greenyellow; color: white"
+    (click)="purchaseCoupon(customerID, coupon)"
+  >
+    Buy Me!&nbsp;<i class="bi bi-bag"></i>
+  </button>
+
+  <a href="/all-coupons">Back</a>
+</div>

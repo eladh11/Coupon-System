@@ -15,6 +15,7 @@ export class AllCouponsComponent implements OnInit {
   public coups: Coupon[];
   public customerID: number;
   public type: string;
+
   constructor(
     private adminService: AdminService,
     private companyService: CompanyService,
@@ -51,10 +52,16 @@ export class AllCouponsComponent implements OnInit {
           this.router.navigateByUrl('/all-coupons');
         },
         (err) => {
-          alert(err.message);
+          if(this.loginService.type=='customer'){
+            alert('you cannot buy the same coupon more than once!');
+          }else{
+            alert('you must Login to the website!');
+            this.router.navigateByUrl('/login');  
+          }
         }
       );
     }
   }
+   
 
 }

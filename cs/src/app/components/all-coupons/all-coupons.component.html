@@ -1,38 +1,54 @@
- <mat-grid-list cols="3" rowHeight="1:1">
+<mat-grid-list cols="3" rowHeight="1:2">
   <mat-grid-tile *ngFor="let coupon of coups">
-    <div class="main" >
-      <div class="img">
-        <img src="../../../assets/images/{{ coupon.id }}.jpg" />
+    <mat-card class="example-card">
+      <div class="ribbon ribbon-top-right" *ngIf="coupon.price % 5 === 0">
+        <span> &nbsp;&nbsp;&nbsp; 🔥🔥HOT ITEM🔥🔥 </span>
       </div>
-      <h1>Details:</h1>
-      <span>Category: {{ coupon.category }}</span>
-      <br />
-      <span>Title: {{ coupon.title }}</span>
-      <br />
-      <span>Description: {{ coupon.description }}</span>
-      <br />
-      <span>Start Date: {{ coupon.startDate | date: "dd/MM/yyyy" }}</span>
-      <br />
-      <span>End Date: {{ coupon.endDate | date: "dd/MM/yyyy" }}</span>
-      <br />
-      <span>Left in Stock: {{ coupon.amount }}</span>
-      <br />
-      <span>Price: {{ coupon.price }}</span>
-      <br />
-      <button
-      *ngIf="type === 'customer'"
-      (click)="purchaseCoupon(customerID, coupon)"
-             >
-        Buy Me!&nbsp;<i class="bi bi-bag"></i>
-      </button>
-     
-    </div>
+      <div class="img">
+        <img mat-card-image src="../../../assets/images/{{ coupon.id }}.jpg" />
+      </div>
+      <mat-card-header>
+        <mat-card-title style="font-size: 40px; padding: 30px"
+          >{{ coupon.title }}:</mat-card-title
+        >
+      </mat-card-header>
+      <mat-card-content> Category: {{ coupon.category }} </mat-card-content>
+      <mat-card-content> Title: {{ coupon.title }} </mat-card-content>
+      <mat-card-content>
+        Description: {{ coupon.description }}
+      </mat-card-content>
+      <mat-card-content>
+        Start Date: {{ coupon.startDate | date: "dd/MM/yyyy" }}
+      </mat-card-content>
+      <mat-card-content>
+        End Date: {{ coupon.endDate | date: "dd/MM/yyyy" }}
+      </mat-card-content>
+      <mat-card-content> Left in Stock: {{ coupon.amount }} </mat-card-content>
+      <mat-card-content>
+        Price: {{ coupon.price | currency: "USD" }}
+      </mat-card-content>
 
-   
+      <mat-card-actions>
+        <button
+          mat-button
+          style="background-color: greenyellow; color: white"
+          *ngIf="type === 'customer'"
+          (click)="purchaseCoupon(customerID, coupon)"
+        >
+          Buy Me!&nbsp;<i class="bi bi-bag"></i>&nbsp;&nbsp;&nbsp;
+        </button>
+        <a routerLink="/coupon/{{ coupon.id }}"> More Details </a>
+        <span
+          mat-button
+          style="background-color: white; color: red"
+          *ngIf="type !== 'customer'"
+        >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; login to Buy...
+        </span>
+      </mat-card-actions>
+    </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
-
-
 
 <!-- 
 <div class="container mt-5 mb-5">

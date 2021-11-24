@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       (loginResult) => {
         // alert(loginResult.token + ' ' + loginResult.type);
         // this.loginService.token = loginResult.token.toString();
-        this.loginService.type = this.credentials.type.toLowerCase();
+        this.loginService.type =this.credentials.type.toLowerCase();
         this.loginService.isLoggedIn = true;
         this.loginService.log = false;
         this.loginService.email = this.credentials.email;

@@ -72,3 +72,9 @@ button:active {
   -ms-transform: scale(0.95);
   transform: scale(0.95);
 }
+.example-form-field {
+  width: 350px;
+  height: auto;
+  box-shadow: 12px 12px 16px grey;
+  background-color: white;
+}

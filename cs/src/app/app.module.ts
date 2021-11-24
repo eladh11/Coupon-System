@@ -38,7 +38,8 @@ import { SignupCompanyComponent } from './components/signup-company/signup-compa
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { OpenPageComponent } from './components/open-page/open-page.component'
+import { OpenPageComponent } from './components/open-page/open-page.component';
+import { P404Component } from './components/p404/p404.component';
 
 
 
@@ -66,6 +67,7 @@ import { OpenPageComponent } from './components/open-page/open-page.component'
     SignupCompanyComponent,
     FooterComponent,
     OpenPageComponent,
+    P404Component,
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { OpenPageComponent } from './components/open-page/open-page.component'
 import { BuyoutpageComponent } from './components/buyoutpage/buyoutpage.component'
+import { P404Component } from './components/p404/p404.component';
 
 const routes: Routes = [
   { path: 'admin', component: AdminComponent },
@@ -37,9 +38,9 @@ const routes: Routes = [
   { path: 'create-account', component: SignupComponent },
   { path: 'signup-company', component: SignupCompanyComponent },
   { path: 'home', component: OpenPageComponent },
-  { path: 'menu/:id', component: BuyoutpageComponent },
+  { path: 'coupon/:id', component: BuyoutpageComponent },
   { path: '', component: OpenPageComponent, pathMatch: 'full' },
-  { path: '**', component: OpenPageComponent, pathMatch: 'full' },
+  { path: '**', component: P404Component, pathMatch: 'full' },
 ];
 
 @NgModule({
