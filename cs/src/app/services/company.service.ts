@@ -2,6 +2,7 @@ import { Coupon } from './../models/coupon';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Env } from './../../environments/Env';
 
 const baseUrl = 'http://localhost:8088/company/';
 
@@ -9,35 +10,37 @@ const baseUrl = 'http://localhost:8088/company/';
   providedIn: 'root',
 })
 export class CompanyService {
+  private url =  Env.URL+'company/';
+
   public constructor(private httpClient: HttpClient) {}
 
   public addCoupon(coupon: Coupon): Observable<any> {
-    return this.httpClient.post<any>(baseUrl + 'add-coupon', coupon);
+    return this.httpClient.post<any>(this.url + 'add-coupon', coupon);
   }
   public updateCoupon(coupon: Coupon): Observable<any> {
     return this.httpClient.put<any>(
-      'http://localhost:8088/company/update-coupon/',
+      this.url+'update-coupon/',
       coupon
     );
   }
   public deleteCoupon(couponID: number): Observable<any> {
-    return this.httpClient.delete<any>(baseUrl + 'delete-coupon/' + couponID);
+    return this.httpClient.delete<any>(this.url + 'delete-coupon/' + couponID);
   }
   public getAllCouponsByID(id: number): Observable<Coupon[]> {
     return this.httpClient.get<Coupon[]>(
-      baseUrl + 'get-all-company-coupons/' + id
+      this.url + 'get-all-company-coupons/' + id
     );
   }
   public getAllCoupons(): Observable<Coupon[]> {
-    return this.httpClient.get<Coupon[]>(baseUrl + 'get-all-coupons');
+    return this.httpClient.get<Coupon[]>(this.url + 'get-all-coupons');
   }
 
   public getAllCouponsByPrice(price: number): Observable<any> {
     return this.httpClient.get<Coupon[]>(
-      baseUrl + 'get-all-company-coupons-maxprice/' + price
+      this.url + 'get-all-company-coupons-maxprice/' + price
     );
   }
   public getAllCompanyDetails(): Observable<any> {
-    return this.httpClient.get<Coupon[]>(baseUrl + 'get-all-company-details');
+    return this.httpClient.get<Coupon[]>(this.url + 'get-all-company-details');
   }
 }

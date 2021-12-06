@@ -1,4 +1,5 @@
 <mat-grid-list cols="3" rowHeight="1:2">
+  <mat-card-title>All Coupons: </mat-card-title>
   <mat-grid-tile *ngFor="let coupon of coups">
     <mat-card class="example-card">
       <div class="ribbon ribbon-top-right" *ngIf="coupon.price % 5 === 0">

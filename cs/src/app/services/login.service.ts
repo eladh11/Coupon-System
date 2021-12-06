@@ -21,7 +21,7 @@ export class LoginService {
   public loginRequest(credentials: Credentials): Observable<LoginResult> {
     const correctURL =
       this.urlService.getURL(credentials.type.toLowerCase()) +
-      '/login?email=' +
+      'login?email=' +
       credentials.email +
       '&password=' +
       credentials.password;
