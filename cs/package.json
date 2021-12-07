@@ -1,5 +1,5 @@
 {
-  "name": "cs",
+  "name": "package.json",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "ng build --prod"
-    },
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.0.6",
@@ -29,8 +29,7 @@
     "@angular/cli": "~10.0.5",
     "@angular/compiler-cli": "~10.0.6",
     "typescript": "~3.9.5"
-   },
-
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.5",
     "@angular/cli": "~10.0.5",
@@ -51,8 +50,20 @@
     "tslint": "~6.1.0",
     "typescript": "~3.9.5"
   },
-   "engines": {
+  "engines": {
     "node": "16.13.1",
     "npm": "6.14.7"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eladh11/https---github.com-eladh11-Angular-CS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eladh11/https---github.com-eladh11-Angular-CS/issues"
+  },
+  "homepage": "https://github.com/eladh11/https---github.com-eladh11-Angular-CS#readme"
 }
