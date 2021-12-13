@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const Env = {\n  URL: 'https://coupunsystem-server.herokuapp.com/',\n  Heroku: 'https://coupunsystem-server.herokuapp.com/',\n  LocalHost: 'http://localhost:8088/'\n};","map":null,"metadata":{},"sourceType":"module"}
