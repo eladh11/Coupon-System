@@ -1,13 +1,14 @@
-<mat-selection-list #actions [multiple]="false">
-  <mat-list-option *ngFor="let action of typesOfAction" [value]="action">
-    {{ action }}
-  </mat-list-option>
-</mat-selection-list>
+<div class="sidebar">
+  <mat-selection-list #actions [multiple]="false">
+    <mat-list-option *ngFor="let action of typesOfAction" [value]="action">
+      {{ action }}
+    </mat-list-option>
+  </mat-selection-list>
+</div>
 
-<app-customer-coupons
-  *ngIf="actions.selectedOptions.selected[0]?.value === 'My Coupons'"
-></app-customer-coupons>
-<br />
-<br />
-<br />
-<app-all-coupons></app-all-coupons>
+<div class="content">
+  <app-customer-coupons
+    *ngIf="actions.selectedOptions.selected[0]?.value === 'My Coupons'"
+  ></app-customer-coupons>
+  <app-all-coupons></app-all-coupons>
+</div>

@@ -4,15 +4,14 @@
   </button>
   <table>
     <tr>
-      <th>Company ID:</th>
-      <th>Category:</th>
-      <th>Title:</th>
-      <th>Description:</th>
+      <th>Company ID</th>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
       <th>Start Date</th>
       <th>End Date</th>
       <th>Amount</th>
       <th>Price</th>
-      <th>Img</th>
       <th>Edit</th>
     </tr>
 
@@ -114,12 +113,6 @@
       </td>
       <td *ngIf="coupon.id === editRowID">
         <input type="text" [(ngModel)]="coupon.img" />
-      </td>
-      <td
-        *ngIf="coupon.id !== editRowID && coupon.companyID === id"
-        (click)="Edit(coupon.id)"
-      >
-        {{ coupon.img }}
       </td>
 
       <td *ngIf="coupon.companyID === id">

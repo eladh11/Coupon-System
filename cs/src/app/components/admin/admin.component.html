@@ -1,24 +1,18 @@
-<mat-selection-list #actions [multiple]="false">
-  <mat-list-option *ngFor="let action of typesOfAction" [value]="action">
-    {{ action }}
-  </mat-list-option>
-</mat-selection-list>
-<app-get-all-companies
-  *ngIf="actions.selectedOptions.selected[0]?.value === 'Get All Companies'"
-></app-get-all-companies>
+<div class="sidebar">
+  <a [routerLink]="['/add-company']">
+    <i class="fa fa-plus" aria-hidden="true"></i> Add Company
+  </a>
+  <a [routerLink]="['/add-customer']">
+    <i class="fa fa-plus" aria-hidden="true"></i> Add Customer
+  </a>
+  <a [routerLink]="['/get-all-customers']">
+    <i class="fa fa-users" aria-hidden="true"></i> Get All Customers
+  </a>
+  <a [routerLink]="['/get-all-companies']">
+    <i class="fa fa-users" aria-hidden="true"></i> Get All Companies
+  </a>
+</div>
 
-<app-get-one-company
-  *ngIf="actions.selectedOptions.selected[0]?.value === 'Get One Company'"
-></app-get-one-company>
-
-<app-get-all-customers
-  *ngIf="actions.selectedOptions.selected[0]?.value === 'Get All Customers'"
-></app-get-all-customers>
-
-<app-get-one-customer
-  *ngIf="actions.selectedOptions.selected[0]?.value === 'Get One Customer'"
-></app-get-one-customer>
-<br />
-<br />
-<br />
-<app-all-coupons></app-all-coupons>
+<div class="content">
+  <app-all-coupons></app-all-coupons>
+</div>

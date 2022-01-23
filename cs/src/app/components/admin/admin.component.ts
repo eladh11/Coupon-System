@@ -6,12 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-  typesOfAction: string[] = [
-    'Get All Companies',
-    'Get One Company',
-    'Get All Customers',
-    'Get One Customer',
-  ];
+ 
 
   public constructor() {}
 

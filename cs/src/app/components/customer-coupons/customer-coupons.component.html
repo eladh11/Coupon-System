@@ -2,15 +2,14 @@
   <h1>My Coupons:</h1>
   <table>
     <tr>
-      <th>Category:</th>
-      <th>Title:</th>
-      <th>Description:</th>
-      <th>Start Date:</th>
-      <th>End Date:</th>
-      <th>Left in Stock:</th>
-      <th>Price:</th>
-      <th>Img:</th>
-      <th>Get Code:</th>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Left in Stock</th>
+      <th>Price</th>
+      <th>Get Code</th>
     </tr>
 
     <tr *ngFor="let coupon of coups">
@@ -37,9 +36,7 @@
       <td>
         {{ coupon.price }}
       </td>
-      <td>
-        {{ coupon.img }}
-      </td>
+
       <td>
         <button class="bbb" (click)="getCode()">Get Coupon Code</button>
       </td>
